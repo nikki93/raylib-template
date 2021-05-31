@@ -1,0 +1,35 @@
+---
+Checks: "-*,\
+  clang-diagnostic-*,\
+  -clang-diagnostic-pragma-pack,\
+  clang-analyzer-*,\
+  performance-*,\
+  -performance-noexcept-move-constructor,\
+  portability-*,\
+  bugprone-*,\
+  -bugprone-macro-parentheses,\
+  -bugprone-infinite-loop,\
+  -bugprone-exception-escape,\
+  -bugprone-suspicious-include,\
+  misc-*,\
+  -misc-unused-parameters,\
+  -misc-non-private-member-variables-in-classes,\
+  cppcoreguidelines-*,\
+  -cppcoreguidelines-macro-usage,\
+  -cppcoreguidelines-avoid-magic-numbers,\
+  -cppcoreguidelines-special-member-functions,\
+  -cppcoreguidelines-non-private-member-variables-in-classes,\
+  -cppcoreguidelines-avoid-non-const-global-variables,\
+  -cppcoreguidelines-pro-bounds-constant-array-index,\
+  -cppcoreguidelines-pro-type-cstyle-cast,\
+  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,\
+  -cppcoreguidelines-pro-type-const-cast,\
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,\
+  -cppcoreguidelines-avoid-c-arrays,\
+  google-explicit-constructor,\
+  modernize-*,\
+  -modernize-deprecated-headers,\
+  -modernize-use-nodiscard,\
+  -modernize-use-trailing-return-type"
+...
+

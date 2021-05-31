@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <!-- Meta -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="castle web" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+    <!-- Style -->
+    <style>
+      /* Dependencies */
+      @import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+
+      /* Basics */
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        background-color: #121212;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Root */
+      div.root-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+
+      /* Scene */
+      div.scene-container {
+        background-color: #121212;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      canvas.scene {
+        background-color: black;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+        display: block;
+        height: 100vh;
+        width: 177.777vh;
+        max-height: 56.25vw;
+        max-width: 100vw;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Root -->
+    <div class="root-container">
+      <!-- Scene -->
+      <div class="scene-container">
+        <canvas
+          class="scene"
+          id="canvas"
+          oncontextmenu="event.preventDefault()"
+          tabindex="0"
+          onclick="this.focus()"
+        />
+        <script>
+          document.getElementById("canvas").focus();
+        </script>
+      </div>
+    </div>
+
+    <!-- WASM -->
+    <script type="text/javascript">
+      var Module = { canvas: document.getElementById("canvas") }; // For Emscripten
+      (() => {
+        // Fetch and launch core JS, trying to skip cache
+        const s = document.createElement("script");
+        s.async = true;
+        s.type = "text/javascript";
+        s.src = "@PROJECT_NAME@.js?ts=" + new Date().getTime(); // CMake replaces filename
+        document.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
+  </body>
+</html>
