@@ -2,7 +2,7 @@
 
 Submodules are used for dependencies, so make sure to have cloned the
 repository with `git clone --recursive` or do `git submodule update --init --recursive`
-after cloning. You'll need to have CMake installed.
+after cloning. You'll need to have CMake and Ninja installed.
 
 ### Desktop
 
