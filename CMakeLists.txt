@@ -24,10 +24,6 @@ if(WEB)
 elseif(WIN32)
   set(CMAKE_C_COMPILER "C:/Program Files/LLVM/bin/clang.exe")
   set(CMAKE_CXX_COMPILER "C:/Program Files/LLVM/bin/clang++.exe")
-elseif(APPLE AND (NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS"))
-  # Homebrew LLVM for compatibility with Homebrew 'clang-tidy'
-  set(CMAKE_C_COMPILER /usr/local/opt/llvm/bin/clang)
-  set(CMAKE_CXX_COMPILER /usr/local/opt/llvm/bin/clang++)
 else()
   set(CMAKE_C_COMPILER clang)
   set(CMAKE_CXX_COMPILER clang++)
@@ -121,17 +117,6 @@ endif()
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(vendor/raylib)
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
-
-# fmt
-#add_subdirectory(vendor/fmt EXCLUDE_FROM_ALL)
-#target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
-
-# entt
-#target_include_directories(${PROJECT_NAME} PRIVATE vendor/entt/src)
-
-# rapidjson
-#target_include_directories(${PROJECT_NAME} PRIVATE vendor/rapidjson/include)
-
 
 #
 # Assets
